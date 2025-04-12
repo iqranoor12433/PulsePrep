@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulsePrep Dashboard</title>
+    <link rel="stylesheet" href="DashboardStyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar" id="sidebar">
+        <div class="logo">
+          <img src="https://via.placeholder.com/50" alt="PulsePrep Logo" />
+          <h1>PULSEPREP</h1>
+        </div>
+        <div class="sidebar-logo">
+          <img src="https://via.placeholder.com/80" alt="Tree Logo" />
+        </div>
+        <nav>
+          <ul>
+            <li class="active"><i class="fas fa-th-large"></i> Dashboard</li>
+            <li><i class="fas fa-tasks"></i> Manage Questions</li>
+            <li><i class="fas fa-users"></i> Manage Users</li>
+            <li><i class="fas fa-vial"></i> Mock Tests</li>
+            <li><i class="fas fa-chart-bar"></i> Analytics & Reports</li>
+            <li><i class="fas fa-user"></i> My Account</li>
+            <li><i class="fas fa-sign-out-alt"></i> Logout</li>
+            <li><i class="fas fa-cog"></i> Settings</li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <h2>Dashboard</h2>
+          <div class="user-area">
+            <i class="fas fa-bell"></i>
+            <img
+              src="https://via.placeholder.com/40"
+              alt="User"
+              class="user-img"
+            />
+          </div>
+        </div>
+
+        <div class="dashboard-content">
+          <div class="section-header">
+            <h3>Overview</h3>
+            <button class="view-detail-btn">View detail</button>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="stats-cards">
+            <div class="stat-card">
+              <div class="stat-info">
+                <h4>Total Users</h4>
+                <div class="stat-number">5,230</div>
+                <div class="stat-detail">
+                  <span class="checked">✓</span> 3,000 Premium / 2,230 Free
+                </div>
+              </div>
+              <div class="stat-icon red">
+                <i class="fas fa-users"></i>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-info">
+                <h4>Active Subscriptions</h4>
+                <div class="stat-number">700</div>
+                <div class="stat-detail"><span class="up">↑</span> 25%</div>
+              </div>
+              <div class="stat-icon blue">
+                <i class="fas fa-credit-card"></i>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="progress-card">
+                <h4>MBBS</h4>
+                <div class="progress-container">
+                  <div class="progress-circle" data-percent="75">
+                    <span class="percent">75%</span>
+                  </div>
+                </div>
+                <div class="progress-values">
+                  <div class="value">$152k</div>
+                  <div class="target">/ $220k</div>
+                </div>
+                <button class="view-report-btn">View report</button>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="progress-card">
+                <h4>BDS</h4>
+                <div class="progress-container">
+                  <div class="progress-circle" data-percent="72">
+                    <span class="percent">72%</span>
+                  </div>
+                </div>
+                <div class="progress-values">
+                  <div class="value">$15k</div>
+                  <div class="target">/ $22k</div>
+                </div>
+                <button class="view-report-btn">View report</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second row stats -->
+          <div class="stats-cards">
+            <div class="stat-card">
+              <div class="stat-info">
+                <h4>New Users MBBS</h4>
+                <div class="stat-number">300</div>
+                <div class="stat-detail"><span class="up">↑</span> 35%</div>
+              </div>
+              <div class="stat-icon navy">
+                <i class="fas fa-user-plus"></i>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-info">
+                <h4>New Users BDS</h4>
+                <div class="stat-number">100</div>
+                <div class="stat-detail"><span class="up">↑</span> 24%</div>
+              </div>
+              <div class="stat-icon red">
+                <i class="fas fa-user-plus"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="charts-section">
+            <div class="chart-container">
+              <h4>Revenue Breakdown</h4>
+              <div class="donut-chart" id="revenue-chart"></div>
+              <div class="chart-legend">
+                <div class="legend-item">
+                  <span
+                    class="legend-color"
+                    style="background-color: #b03060"
+                  ></span>
+                  <span class="legend-text">Subscriptions: 30%</span>
+                </div>
+                <div class="legend-item">
+                  <span
+                    class="legend-color"
+                    style="background-color: #1f4f8f"
+                  ></span>
+                  <span class="legend-text">Mock Test Sales: 35%</span>
+                </div>
+                <div class="legend-item">
+                  <span
+                    class="legend-color"
+                    style="background-color: #f7cac9"
+                  ></span>
+                  <span class="legend-text">Referral Earnings: 35%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-container">
+              <h4>Test Attempts Today</h4>
+              <div class="line-chart" id="test-chart"></div>
+              <div class="chart-legend">
+                <div class="legend-item">
+                  <span
+                    class="legend-color"
+                    style="background-color: #b03060"
+                  ></span>
+                  <span class="legend-text">MBBS 1</span>
+                </div>
+                <div class="legend-item">
+                  <span
+                    class="legend-color"
+                    style="background-color: #1f4f8f"
+                  ></span>
+                  <span class="legend-text">BDS 2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modules Section -->
+          <div class="modules-section">
+            <h4>Modules</h4>
+            <div class="module-buttons">
+              <button class="module-btn">
+                <i class="fas fa-plus"></i> Add MCQ
+              </button>
+              <button class="module-btn">
+                <i class="fas fa-calendar"></i> Schedule Mock Test
+              </button>
+              <button class="module-btn">
+                <i class="fas fa-file-alt"></i> View Reports
+              </button>
+            </div>
+          </div>
+
+          <!-- Clients Section -->
+          <div class="clients-section">
+            <div class="clients-column">
+              <div class="clients-header">
+                <h4>New clients MBBS</h4>
+                <a href="#" class="view-all">View all</a>
+              </div>
+              <div class="clients-list">
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Baker</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(725) 645-2085</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Gomez</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(937) 654-7559</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Gomez</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(608) 687-8767</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Green</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(210) 845-1266</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Davis</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(210) 845-5409</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+              </div>
+              <div class="pagination">
+                <span>100 clients</span>
+                <div class="page-controls">
+                  <button><i class="fas fa-chevron-left"></i></button>
+                  <button class="active">1</button>
+                  <button>2</button>
+                  <button>...</button>
+                  <button>10</button>
+                  <button><i class="fas fa-chevron-right"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="clients-column">
+              <div class="clients-header">
+                <h4>New clients BDS</h4>
+                <a href="#" class="view-all">View all</a>
+              </div>
+              <div class="clients-list">
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Baker</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(725) 645-2085</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Gomez</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(937) 654-7559</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Gomez</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(608) 687-8767</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Green</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(210) 845-1266</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+                <div class="client-item">
+                  <div class="client-info">
+                    <img src="https://via.placeholder.com/40" alt="Client" />
+                    <span>Davis</span>
+                  </div>
+                  <div class="client-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(210) 845-5409</span>
+                  </div>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+              </div>
+              <div class="pagination">
+                <span>100 clients</span>
+                <div class="page-controls">
+                  <button><i class="fas fa-chevron-left"></i></button>
+                  <button class="active">1</button>
+                  <button>2</button>
+                  <button>...</button>
+                  <button>10</button>
+                  <button><i class="fas fa-chevron-right"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="quick-action-section">
+            <h4>Quick Action Buttons</h4>
+            <div class="quick-action-buttons">
+              <button class="action-btn red-btn">Add MCQs</button>
+              <button class="action-btn">Schedule Mock Test</button>
+              <button class="action-btn">View Reports</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+          <div class="footer-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <p>© PsychPrep Media Group, LLC. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="Dashboardscript.js"></script>
+  </body>
+</html>
